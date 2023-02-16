@@ -27,7 +27,7 @@ const Body = () => {
 
   useEffect(() => {
     getData();
-    getLocation();
+    // getLocation();
   }, []);
   useEffect(() => {
     searchData(inputData, allRestaurants);
@@ -36,7 +36,7 @@ const Body = () => {
 
   async function getData() {
     let data = await fetch(
-      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.latitude}&lng=${location.longitude}&page_type=DESKTOP_WEB_LISTING`
+      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.591108571917196&lng=77.30704950738556&page_type=DESKTOP_WEB_LISTING`
     );
 
     let res = await data.json();
