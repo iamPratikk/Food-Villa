@@ -1,20 +1,20 @@
 import { useContext, useState } from "react";
 import { LOGO_URL } from "../Config";
 import { Link } from "react-router-dom";
-import img from "../Assets/foodVilla-logo.png";
+import img from "../Assets/foodVilla-logo.png"
 import userContext from "../Utils/UserContext";
 import { useSelector } from "react-redux";
-import store from "../Utils/Store";
+
 
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const { user } = useContext(userContext);
   const cartItems = useSelector((store) => store.cart.items);
-
+console.log(cartItems)
   return (
     <div className="flex justify-between items-center  bg-orange-700 h-24 ">
       <Link to="/">
-        <img className="w-20 mx-8 " src={img} />
+        <img className="w-20 mx-8 " src={LOGO_URL} />
       </Link>
       <div className="flex ">
         <ul className="flex items-center px-2 mr-4 ">

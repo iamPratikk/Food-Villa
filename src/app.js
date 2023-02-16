@@ -12,7 +12,7 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import userContext from "./Utils/UserContext";
 import { Provider } from "react-redux";
-import store from "./Utils/Store";
+import stores from "./Utils/store";
 import Cart from "./components/Cart";
 import Toggle from "./components/Toggle";
 
@@ -27,7 +27,7 @@ const AppLayout = () => {
 
   return (
     <>
-      <Provider store={store}>
+      <Provider store={stores}>
         <userContext.Provider
           value={{
             user: user,
