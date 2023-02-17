@@ -9,11 +9,11 @@ const useRestaurant = (id) => {
 
   async function getRestaurantData() {
     const res = await fetch(
-      "https://www.swiggy.com/dapi/menu/v4/full?lat=25.605599&lng=85.153442&menuId=" +
+      "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/menu/v4/full?lat=25.605599&lng=85.153442&menuId=" +
         id
     );
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
     setRestaurant(data);
   }
   return restaurant;

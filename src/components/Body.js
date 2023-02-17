@@ -27,8 +27,10 @@ const Body = () => {
 
   useEffect(() => {
     getData();
-    // getLocation();
   }, []);
+  useEffect(() => {
+    getLocation();
+  }, [location]);
   useEffect(() => {
     searchData(inputData, allRestaurants);
   }, [inputData]);
@@ -36,18 +38,18 @@ const Body = () => {
 
   async function getData() {
     let data = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.59078628478952&lng=77.36545778810978&page_type=DESKTOP_WEB_LISTING"
+      `https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.latitude}&lng=${location.longitude}&page_type=DESKTOP_WEB_LISTING`
     );
-      
+
     let res = await data.json();
-    console.log(res)
+    console.log(res);
     setAllRestaurants(res?.data?.cards[2]?.data?.data?.cards);
     setRestaurants(res?.data?.cards[2]?.data?.data?.cards);
     setDemo(res?.data?.cards[2]?.data?.data?.cards);
   }
   async function getSecondData(click2) {
     if (click2) {
-      console.log("btn 2 clickwd");
+      // console.log("btn 2 clickwd");
     }
     setButtonCounter(buttonCounter + 1);
     if (buttonCounter == 1) {
@@ -96,7 +98,7 @@ const Body = () => {
   //   }
   //   return acc;
   // }, []);
-  console.log(restaurants);
+  // console.log(restaurants);
 
   return (
     <div className="">
