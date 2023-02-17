@@ -28,19 +28,19 @@ const Body = () => {
   useEffect(() => {
     getData();
     // getLocation();
-  }, [location]);
+  }, []);
   useEffect(() => {
     searchData(inputData, allRestaurants);
   }, [inputData]);
-  useEffect(() => {}, [buttonCounter]);
+  // useEffect(() => {}, [buttonCounter]);
 
   async function getData() {
     let data = await fetch(
-      "https://foodvilla-nr.netlify.app/api/fetchCorsEndpointData"
+      "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.59078628478952&lng=77.36545778810978&page_type=DESKTOP_WEB_LISTING"
     );
-
+      
     let res = await data.json();
-
+    console.log(res)
     setAllRestaurants(res?.data?.cards[2]?.data?.data?.cards);
     setRestaurants(res?.data?.cards[2]?.data?.data?.cards);
     setDemo(res?.data?.cards[2]?.data?.data?.cards);
@@ -86,16 +86,16 @@ const Body = () => {
 
   if (allRestaurants?.length == 0) return <Shimmer />;
 
-  let findData = demo.reduce((acc, curr) => {
-    if (curr.data.data) {
-      acc.push(curr.data.data);
-      // console.log("2 layer data")
-    } else {
-      acc.push(curr.data);
-      // console.log("single layer data")
-    }
-    return acc;
-  }, []);
+  // let findData = demo.reduce((acc, curr) => {
+  //   if (curr.data.data) {
+  //     acc.push(curr.data.data);
+  //     // console.log("2 layer data")
+  //   } else {
+  //     acc.push(curr.data);
+  //     // console.log("single layer data")
+  //   }
+  //   return acc;
+  // }, []);
   console.log(restaurants);
 
   return (

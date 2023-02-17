@@ -26,7 +26,7 @@ const MyProfile=()=>{
                 <h1 className="text-2xl font-bold" >About me</h1>
                 <p className="text-xs m-2 " >Bio : Alot to learn!!!</p>
                 <p className="text-xs m-2" >I am a front-end developer having 1.5 years of experience</p>
-                <p className="text-xs m-2" >Github username :</p>
+                <p className="text-xs m-2" >Github username :<span><a href="https://github.com/iamPratikk" >Github</a></span></p>
                 <p className="text-xs m-2" >Location : Delhi NCR</p>
             </div>
             <div className=" w-52 bg-white  m-2 " >
